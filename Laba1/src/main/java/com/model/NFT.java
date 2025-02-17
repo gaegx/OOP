@@ -3,7 +3,7 @@ package main.java.com.model;
 public class NFT extends CryptoAsset {
     private String metadata;
 
-    private NFT(String assetName, String symbol, String metadata, double price) {
+    protected NFT(String assetName, String symbol, String metadata, double price) {
         super(assetName, symbol, price);
         this.metadata = metadata;
     }

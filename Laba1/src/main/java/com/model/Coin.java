@@ -2,7 +2,7 @@ package main.java.com.model;
 
 public class Coin extends CryptoAsset {
     private String blockchain;
-     private Coin(String assetName, String symbol, String blockchain, double price) {
+     protected Coin(String assetName, String symbol, String blockchain, double price) {
          super(assetName, symbol, price);
          this.blockchain = blockchain;
      }
