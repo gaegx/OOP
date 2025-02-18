@@ -1,6 +1,7 @@
 package main.java.com.model;
 
 import java.util.ArrayList;
+//import java.util.Collections;
 import java.util.List;
 
 public class CryptoList {
@@ -61,15 +62,11 @@ public class CryptoList {
         return null;
     }
 
-
-
-
-
-
-
-
-
-
+/*
+    public CryptoList Sort(){
+        Collections.sort(assets);
+    }
+*/
 
 
 }
