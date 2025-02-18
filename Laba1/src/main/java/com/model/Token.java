@@ -11,6 +11,10 @@ public class Token extends CryptoAsset {
     public static Token CreateToken(String assetName, String symbol,String contractAddress, double price) {
         return new Token(assetName, symbol,contractAddress, price);
     }
+    @Override
+     public String gettype() {
+        return "Token";
+    }
 
 }
 

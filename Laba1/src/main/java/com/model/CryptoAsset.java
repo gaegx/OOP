@@ -10,6 +10,16 @@ public abstract class CryptoAsset {
         this.symbol = symbol;
         this.price = price;
     }
+    abstract String gettype();
+    public String getassetname(){
+        return assetName;
+    };
+    public String getsymbol(){
+        return symbol;
+    }
+    public double getprice(){
+        return price;
+    }
 
 
 

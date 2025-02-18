@@ -11,4 +11,10 @@ public class Coin extends CryptoAsset {
          return new Coin(assetName, symbol, blockchain, price);
      }
 
+    @Override
+    public String gettype() {
+        return "Coin";
+    }
+
+
 }

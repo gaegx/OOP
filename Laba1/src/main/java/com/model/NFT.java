@@ -11,4 +11,9 @@ public class NFT extends CryptoAsset {
     public static NFT CreateNFT(String assetName, String symbol, String metadata, double price) {
         return new NFT(assetName, symbol, metadata, price);
     }
+
+    @Override
+    public String gettype() {
+        return "NFT";
+    }
 }
