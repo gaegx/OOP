@@ -1,15 +1,20 @@
 //TIP Для <b>запуска</b> кода нажмите <shortcut actionId="Run"/> или
-// щелкните значок <icon src="AllIcons.Actions.Execute"/> в боковой области.
+import main.java.com.model.Coins.Bitcoin;
+import main.java.com.view.MainFrame;
+
+import javax.swing.*;
+
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Нажмите <shortcut actionId="ShowIntentionActions"/>, поместив каретку на выделенный текст
-        // чтобы увидеть, как IntelliJ IDEA предлагает исправить это.
-        System.out.printf("Hello and welcome!");
+        Bitcoin bitcoin=Bitcoin.createBitcoin("Bit","B","block",1090,1);
+        Bitcoin bitcoin1=Bitcoin.createBitcoin("Bit","B","block",1090,2);
+        bitcoin1=bitcoin;
+       SwingUtilities.invokeLater(MainFrame::new);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Нажмите <shortcut actionId="Debug"/>, чтобы начать отладку кода. Мы установили одну <icon src="AllIcons.Debugger.Db_set_breakpoint"/> точку останова
-            // для вас, но вы всегда можете добавить еще, нажав <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+
+
+
+
     }
 }
