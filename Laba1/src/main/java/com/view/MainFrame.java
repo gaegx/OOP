@@ -3,49 +3,62 @@ package main.java.com.view;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import main.java.com.view.RegFrame;
-
 
 public class MainFrame extends JFrame {
-    public MainFrame() {
-        setTitle("Crypto");
-        setSize(600,600);
+    private String username;
+
+    public MainFrame(String username) {
+        setTitle("Криптокошелек");
+        setSize(600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new GridBagLayout());
-        JLabel titleLabel = new JLabel("Crypto");
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 45));
+        JLabel welcomeLabel = new JLabel("Добро пожаловать, " + username + "!");
+        welcomeLabel.setFont(new Font("Arial", Font.BOLD, 18));
 
-        JButton registerButton =createStyledButton("Register");
-        JButton authenticateButton = createStyledButton("Authenticate");
+        JButton depositButton = createStyledButton("➕ Пополнить");
+        JButton transferButton = createStyledButton("📤 Перевести");
+        JButton historyButton = createStyledButton("📜 История");
+        JButton settingsButton = createStyledButton("⚙️ Настройки");
+        JButton logoutButton = createStyledButton("Выйти");
 
-        registerButton.addActionListener(this::Onreg);
-        authenticateButton.addActionListener(this::Onaut);
+        settingsButton.addActionListener(this::OnSeting);
+        logoutButton.addActionListener(e -> System.exit(0));
 
         GridBagConstraints gbc = new GridBagConstraints();
-
-        gbc.insets = new Insets(15, 15, 15, 15);
+        gbc.insets = new Insets(10, 10, 10, 10);
         gbc.gridx = 0;
         gbc.gridy = 0;
-        add(titleLabel, gbc);
+        gbc.gridwidth = 2;
+        add(welcomeLabel, gbc);
 
-        gbc.gridy = 1;
-        add(registerButton, gbc);
+//        gbc.gridy = 1;
+//        add(balancePanel, gbc);
 
         gbc.gridy = 2;
-        add(authenticateButton, gbc);
+        gbc.gridwidth = 1;
+        add(depositButton, gbc);
+
+        gbc.gridx = 1;
+        add(transferButton, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        add(historyButton, gbc);
+
+        gbc.gridx = 1;
+        add(settingsButton, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        gbc.gridwidth = 2;
+        gbc.anchor = GridBagConstraints.CENTER;
+        add(logoutButton, gbc);
 
         setVisible(true);
 
-    }
-    private void Onreg(ActionEvent e) {
-        new RegFrame();
-        this.dispose();
 
 
-    }
-
-    private void Onaut(ActionEvent e) {
 
     }
 
@@ -60,12 +73,8 @@ public class MainFrame extends JFrame {
         return button;
     }
 
-
-
-
-
-
-
-
-
+    private void OnSeting(ActionEvent e) {
+        new SettingFrame();
+        this.dispose();
+    }
 }
