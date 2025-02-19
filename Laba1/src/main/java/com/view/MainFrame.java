@@ -23,6 +23,7 @@ public class MainFrame extends JFrame {
         JButton logoutButton = createStyledButton("Выйти");
 
         settingsButton.addActionListener(this::OnSeting);
+        transferButton.addActionListener(this::OnReplenish);
         logoutButton.addActionListener(e -> System.exit(0));
 
         GridBagConstraints gbc = new GridBagConstraints();
@@ -76,5 +77,14 @@ public class MainFrame extends JFrame {
     private void OnSeting(ActionEvent e) {
         new SettingFrame();
         this.dispose();
+    }
+
+    private void OnReplenish(ActionEvent e) {
+        new ReplenishFrame();
+        this.setVisible(false);
+    }
+
+    public void  Visible(){
+
     }
 }

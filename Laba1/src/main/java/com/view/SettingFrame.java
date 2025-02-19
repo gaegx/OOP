@@ -1,5 +1,7 @@
 package main.java.com.view;
 
+import com.sun.tools.javac.Main;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -64,7 +66,7 @@ public class SettingFrame extends JFrame  {
         this.dispose();
     }
 
-    private void Back(ActionEvent e) {
+    private  void Back(ActionEvent e) {
 
     }
 
