@@ -4,10 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+import main.java.com.model.User;
+import main.java.com.controller.UserController;
 
 public class RegFrame extends JFrame {
     private String username;
     private String password;
+    private String email;
 
     public RegFrame() {
         setTitle("Crypto");
@@ -54,7 +57,8 @@ public class RegFrame extends JFrame {
     }
 
     private void OnMain(ActionEvent e) {
-        new MainFrame(username);
+        UserController userController = new UserController();
+        new MainFrame(UserController.createUser(username,password,email));
         this.dispose();
 
     }

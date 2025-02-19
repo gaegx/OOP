@@ -28,10 +28,20 @@ public class User {
         return email;
     }
 
+    public int getBalance() {
+        return balance;
+    }
+    public CryptoList getCryptoList() {
+        return wallet;
+    }
 
-
-
-
+    public void setCryptoList(CryptoList cryptoList) {
+        if (cryptoList != null) {
+            this.wallet = cryptoList;
+        } else {
+            this.wallet = new CryptoList(); // Если передан null, создаем пустой список
+        }
+    }
 
 
 

@@ -10,6 +10,10 @@ public class Stablecoin extends Token {
         this.peggedCurrency = peggedCurrency;
     }
 
+    public static Stablecoin createStablecoin(String name, String symbol, double value, String peggedCurrency) {
+        return new Stablecoin(name,symbol,value,peggedCurrency,  );
+    }
+
 
 
 

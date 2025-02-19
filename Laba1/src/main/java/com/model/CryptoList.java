@@ -1,7 +1,6 @@
 package main.java.com.model;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class CryptoList {
@@ -11,7 +10,7 @@ public class CryptoList {
         return assets.size();
     }
 
-    public void add(CryptoAsset asset) {
+    public void addAsset(CryptoAsset asset) {
         assets.add(asset);
     }
 
@@ -29,17 +28,27 @@ public class CryptoList {
         return null; // Защита от выхода за границы списка
     }
 
-    // Метод возвращает список всех активов
+    public boolean removeByName(String name) {
+        return assets.removeIf(asset -> asset.getAssetName().equalsIgnoreCase(name));
+    }
+
     public List<CryptoAsset> getAllAssets() {
         return new ArrayList<>(assets); // Возвращаем копию списка для безопасности
     }
 
-    // Поиск активов по типу (возвращает новый CryptoList)
+    public List<String> getAssetsAsStrings() {
+        List<String> assetStrings = new ArrayList<>();
+        for (CryptoAsset asset : assets) {
+            assetStrings.add(asset.toString());
+        }
+        return assetStrings;
+    }
+
     public CryptoList findByType(String type) {
         CryptoList result = new CryptoList();
         for (CryptoAsset asset : assets) {
             if (asset.gettype().equalsIgnoreCase(type)) {
-                result.add(asset);
+                result.addAsset(asset);
             }
         }
         return result;
@@ -72,14 +81,15 @@ public class CryptoList {
         return null;
     }
 
-
-
-
-    // Метод для вывода всех активов в строковом формате
+    @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("CryptoList:\n");
+        if (assets.isEmpty()) {
+            return "Криптопортфель пуст.";
+        }
+
+        StringBuilder sb = new StringBuilder("Криптопортфель:\n");
         for (CryptoAsset asset : assets) {
-            sb.append(asset.toString()).append("\n");
+            sb.append("• ").append(asset.toString()).append("\n");
         }
         return sb.toString();
     }

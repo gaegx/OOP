@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class UserController {
 
-    public User createUser(String username, String password,String email) {
+    public static User createUser(String username, String password, String email) {
         Random rand = new Random();
         int walletnumber=((rand.nextInt(100000000)+1)/2*5)%15;
         int balance=100000;

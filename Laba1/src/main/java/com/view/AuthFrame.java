@@ -1,5 +1,7 @@
 package main.java.com.view;
 
+import main.java.com.controller.UserController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,6 +9,7 @@ import java.awt.event.ActionEvent;
 public class AuthFrame extends JFrame {
     private String username;
     private String password;
+    private String email;
 
 
     public AuthFrame() {
@@ -60,7 +63,8 @@ public class AuthFrame extends JFrame {
     }
 
     private void OnMain(ActionEvent e) {
-        new MainFrame(username);
+        UserController userController = new UserController();
+        new MainFrame(UserController.createUser(username,password,email));
         this.dispose();
 
     }
