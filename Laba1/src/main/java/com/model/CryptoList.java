@@ -1,72 +1,86 @@
 package main.java.com.model;
 
 import java.util.ArrayList;
-//import java.util.Collections;
+import java.util.Collections;
 import java.util.List;
 
 public class CryptoList {
-    private List<CryptoAsset> assets =new ArrayList<>();
-    private static int  size;
+    private List<CryptoAsset> assets = new ArrayList<>();
 
     public int getSize() {
-        return size;
+        return assets.size();
     }
 
     public void add(CryptoAsset asset) {
         assets.add(asset);
-        size++;
     }
 
     public CryptoAsset get(int index) {
-        return assets.get(index);
+        if (index >= 0 && index < assets.size()) {
+            return assets.get(index);
+        }
+        return null; // Защита от выхода за границы списка
     }
 
     public CryptoAsset remove(int index) {
-        return assets.remove(index);
+        if (index >= 0 && index < assets.size()) {
+            return assets.remove(index);
+        }
+        return null; // Защита от выхода за границы списка
     }
 
+    // Метод возвращает список всех активов
+    public List<CryptoAsset> getAllAssets() {
+        return new ArrayList<>(assets); // Возвращаем копию списка для безопасности
+    }
 
-    public CryptoAsset findbytype(String type) {
+    // Поиск активов по типу (возвращает новый CryptoList)
+    public CryptoList findByType(String type) {
+        CryptoList result = new CryptoList();
         for (CryptoAsset asset : assets) {
-            if (asset.gettype().equals(type)) {
+            if (asset.gettype().equalsIgnoreCase(type)) {
+                result.add(asset);
+            }
+        }
+        return result;
+    }
+
+    public CryptoAsset findByName(String name) {
+        for (CryptoAsset asset : assets) {
+            if (asset.getAssetName().equalsIgnoreCase(name)) {
                 return asset;
             }
         }
         return null;
     }
 
-    public CryptoAsset findbyname(String name) {
+    public CryptoAsset findBySymbol(String symbol) {
         for (CryptoAsset asset : assets) {
-            if(asset.getassetname().equals(name)) {
+            if (asset.getsymbol().equalsIgnoreCase(symbol)) {
                 return asset;
             }
         }
         return null;
     }
 
-    public CryptoAsset findbysymbol(String symbol) {
+    public CryptoAsset findByValue(double value) {
         for (CryptoAsset asset : assets) {
-            if(asset.getsymbol().equals(symbol)) {
+            if (asset.getPrice() == value) {
                 return asset;
             }
         }
         return null;
     }
 
-    public CryptoAsset findbyvalue(double value) {
+
+
+
+    // Метод для вывода всех активов в строковом формате
+    public String toString() {
+        StringBuilder sb = new StringBuilder("CryptoList:\n");
         for (CryptoAsset asset : assets) {
-            if(asset.getprice() == value) {
-                return asset;
-            }
+            sb.append(asset.toString()).append("\n");
         }
-        return null;
+        return sb.toString();
     }
-
-/*
-    public CryptoList Sort(){
-        Collections.sort(assets);
-    }
-*/
-
-
 }

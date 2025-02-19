@@ -1,11 +1,14 @@
 package main.java.com.view;
 
+import main.java.com.model.User;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class MainFrame extends JFrame {
     private String username;
+    private User user;
 
     public MainFrame(String username) {
         setTitle("Криптокошелек");

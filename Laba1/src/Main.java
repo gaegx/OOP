@@ -7,9 +7,6 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-        Bitcoin bitcoin=Bitcoin.createBitcoin("Bit","B","block",1090,1);
-        Bitcoin bitcoin1=Bitcoin.createBitcoin("Bit","B","block",1090,2);
-        bitcoin1=bitcoin;
        SwingUtilities.invokeLater(StartFrame::new);
 
 
