@@ -25,6 +25,8 @@ public class MainFrame extends JFrame {
         settingsButton.addActionListener(this::OnSeting);
         transferButton.addActionListener(this::OnReplenish);
         logoutButton.addActionListener(e -> System.exit(0));
+        depositButton.addActionListener(this::OnAdd);
+
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
@@ -84,7 +86,8 @@ public class MainFrame extends JFrame {
         this.setVisible(false);
     }
 
-    public void  Visible(){
-
+    private void OnAdd(ActionEvent e) {
+        new AddassetFrame();
+        this.setVisible(false);
     }
 }
