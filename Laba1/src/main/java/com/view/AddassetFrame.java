@@ -1,84 +1,99 @@
 package main.java.com.view;
 
+import main.java.com.controller.AssetController;
+import main.java.com.model.User;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class AddassetFrame extends JFrame {
-    public AddassetFrame() {
-        setTitle("Crypto");
+    private JComboBox<String> assets;
+    private JTextField amountField;
+    private JButton confirmButton;
+    private JButton backButton;
+    private MainFrame mainFrame;
+    private User user;
+
+    public AddassetFrame(MainFrame mainFrame, User user) {
+        this.mainFrame = mainFrame;
+        this.user = user;
+
+        setTitle("Пополнить");
         setSize(600, 600);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new GridBagLayout());
 
-        // Заголовок
         JLabel titleLabel = new JLabel("Пополнить");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 45));
 
-        // Выпадающий список для выбора актива
         String[] items = {"Bitcoin", "Ethereum", "ArtNFT", "GameNFT", "Stablecoin", "UtilityCoin"};
-        JComboBox<String> assets = new JComboBox<>(items);
+        assets = new JComboBox<>(items);
 
-        // Метка и текстовое поле для ввода количества
         JLabel nameLabel = new JLabel("Количество:");
-        JTextField amountField = new JTextField(15);
+        amountField = new JTextField(15);
 
-        // Кнопка подтверждения
-        JButton confirmButton = createStyledButton("Подтвердить");
+        confirmButton = createStyledButton("Подтвердить");
+        backButton = createStyledButton("Назад");
+        backButton.addActionListener(e -> goBack());
 
-        // Настройка GridBagConstraints для расположения компонентов
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(10, 10, 10, 10); // Отступы между компонентами
-        gbc.fill = GridBagConstraints.HORIZONTAL; // Растягивание компонентов по горизонтали
+        gbc.insets = new Insets(10, 10, 10, 10);
+        gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        // Размещение заголовка
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.gridwidth = 2; // Заголовок занимает две колонки
-        gbc.anchor = GridBagConstraints.CENTER; // Выравнивание по центру
+        gbc.gridwidth = 2;
         add(titleLabel, gbc);
 
-        // Размещение выпадающего списка
-        gbc.gridx = 0;
         gbc.gridy = 1;
-        gbc.gridwidth = 2;
-        gbc.anchor = GridBagConstraints.CENTER;
         add(assets, gbc);
 
-        // Размещение метки "Количество"
-        gbc.gridx = 0;
         gbc.gridy = 2;
         gbc.gridwidth = 1;
-        gbc.anchor = GridBagConstraints.LINE_END; // Выравнивание по правому краю
         add(nameLabel, gbc);
 
-        // Размещение текстового поля для ввода количества
         gbc.gridx = 1;
-        gbc.gridy = 2;
-        gbc.anchor = GridBagConstraints.LINE_START; // Выравнивание по левому краю
         add(amountField, gbc);
 
-        // Размещение кнопки "Подтвердить"
         gbc.gridx = 0;
         gbc.gridy = 3;
         gbc.gridwidth = 2;
-        gbc.anchor = GridBagConstraints.CENTER;
         add(confirmButton, gbc);
 
-        // Делаем окно видимым
+        gbc.gridy = 4;
+        add(backButton, gbc);
+
+        new AssetController(user, this,mainFrame);
+
         setVisible(true);
     }
 
     private JButton createStyledButton(String text) {
         JButton button = new JButton(text);
         button.setFont(new Font("Arial", Font.BOLD, 16));
-        button.setPreferredSize(new Dimension(200, 40)); // Увеличиваем размер кнопки
-        button.setBackground(new Color(126, 153, 119));  // Цвет фона (синий)
-        button.setForeground(Color.WHITE);              // Цвет текста (белый)
-        button.setFocusPainted(false);                 // Убираем границу фокуса
-        button.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Убираем стандартные границы
+        button.setPreferredSize(new Dimension(200, 40));
+        button.setBackground(new Color(126, 153, 119));
+        button.setForeground(Color.WHITE);
+        button.setFocusPainted(false);
+        button.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         return button;
     }
 
+    private void goBack() {
+        mainFrame.setVisible(true);
+        dispose();
+    }
 
+    public JComboBox<String> getAssetComboBox() {
+        return assets;
+    }
+
+    public JTextField getAmountField() {
+        return amountField;
+    }
+
+    public JButton getConfirmButton() {
+        return confirmButton;
+    }
 }
