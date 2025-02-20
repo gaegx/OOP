@@ -5,7 +5,7 @@ public class User {
     private String Password;
     private String email;
     private int walletnumber;
-    private int balance;
+    private double balance;
     private CryptoList wallet=new CryptoList();
 
 
@@ -28,7 +28,7 @@ public class User {
         return email;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
     public CryptoList getCryptoList() {
@@ -41,6 +41,10 @@ public class User {
         } else {
             this.wallet = new CryptoList(); // Если передан null, создаем пустой список
         }
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
 
