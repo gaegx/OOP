@@ -105,7 +105,6 @@ public class MainFrame extends JFrame {
             String assetInfo = String.format("%s (%s) - Количество: %.2f | Цена: $%.2f | Общая стоимость: $%.2f",
                     asset.getAssetName(), asset.getsymbol(), asset.getAmount(), asset.getPrice(), asset.getAmount() * asset.getPrice());
 
-
             if (asset instanceof Coin) {
                 Coin coin = (Coin) asset;
                 assetInfo += String.format(" | Блокчейн: %s", coin.getBlockchain());

@@ -77,7 +77,7 @@ public class SellController {
         mainFrame.updateBalance(user);
         mainFrame.updateAssetsList();
 
-        JOptionPane.showMessageDialog(sellFrame, "Акт успешно продан!\nТекущий баланс: " + user.getBalance() + "\nВыручка: " + totalRevenue, "Успех", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(sellFrame, "Актив успешно продан!\nТекущий баланс: " + user.getBalance() + "\nВыручка: " + totalRevenue, "Успех", JOptionPane.INFORMATION_MESSAGE);
         sellFrame.dispose();
     }
 }
