@@ -2,6 +2,7 @@ package main.java.com.view;
 
 import main.java.com.controller.AssetController;
 import main.java.com.model.User;
+import main.java.com.service.ReflectionService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,6 +14,7 @@ public class AddassetFrame extends JFrame {
     private JButton backButton;
     private MainFrame mainFrame;
     private User user;
+    private  ReflectionService reflectionService;
 
     public AddassetFrame(MainFrame mainFrame, User user) {
         this.mainFrame = mainFrame;
@@ -27,7 +29,7 @@ public class AddassetFrame extends JFrame {
         JLabel titleLabel = new JLabel("Пополнить");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 45));
 
-        String[] items = {"Bitcoin", "Ethereum", "ArtNFT", "GameNFT", "Stablecoin", "UtilityCoin"};
+        String[] items =reflectionService.getAssetFactoryClasses();
         assets = new JComboBox<>(items);
 
         JLabel nameLabel = new JLabel("Количество:");

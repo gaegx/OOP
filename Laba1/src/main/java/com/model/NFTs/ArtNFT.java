@@ -2,7 +2,7 @@ package main.java.com.model.NFTs;
 
 import main.java.com.model.NFT;
 import main.java.com.util.AssetFactory;
-
+@AssetFactory(paramPrompts = {"Name:", "Symbol:", "Value:", "Amount:", "Metadata:", "Artist Name:"})
 public class ArtNFT extends NFT {
     private String artistName;
 
@@ -11,8 +11,8 @@ public class ArtNFT extends NFT {
         this.artistName = artistName;
     }
 
-    @AssetFactory(paramPrompts = {"Name:", "Symbol:", "Value:", "Amount:", "Metadata:", "Artist Name:"})
-    public static ArtNFT createArtNFT(String name, String symbol, double value, double amount, String metadata, String artistName) {
+
+    public static ArtNFT Сreate(String name, String symbol, double value, double amount, String metadata, String artistName) {
         return new ArtNFT(name, symbol, value, amount, metadata, artistName);
     }
 

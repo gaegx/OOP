@@ -34,6 +34,9 @@ public abstract class CryptoAsset {
     public void setPrice(double amount) {
         this.price = amount;
     }
+    public void setAssetName(String assetName) {
+        this.assetName = assetName;
+    }
 
     public double getAmount() {
         return amount;
