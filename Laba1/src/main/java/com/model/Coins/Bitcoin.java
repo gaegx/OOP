@@ -1,18 +1,19 @@
 package main.java.com.model.Coins;
 
-import main.java.com.model.Coin;
 import main.java.com.model.PaymentCoin;
+import main.java.com.util.AssetFactory;
 
 public class Bitcoin extends PaymentCoin {
     private double maxSupply;
 
-    private Bitcoin(String assetName, String symbol, String blockchain, double price,double amount,double transactionSpeed, double maxSupply) {
-        super(assetName, symbol, blockchain, price,amount,transactionSpeed); // Вызов конструктора Coin
-        this.maxSupply = maxSupply; // Инициализация поля maxSupply
+    private Bitcoin(String assetName, String symbol, String blockchain, double price, double amount, double transactionSpeed, double maxSupply) {
+        super(assetName, symbol, blockchain, price, amount, transactionSpeed);
+        this.maxSupply = maxSupply;
     }
 
-    public static Bitcoin createBitcoin(String assetName, String symbol, String blockchain, double price,double amount,double transactionSpeed, double maxSupply) {
-        return new Bitcoin(assetName, symbol, blockchain, price,amount, transactionSpeed, maxSupply);
+    @AssetFactory(paramPrompts = {"Asset name:", "Symbol:", "Blockchain:", "Price:", "Amount:", "Transaction Speed:", "Max Supply:"})
+    public static Bitcoin createBitcoin(String assetName, String symbol, String blockchain, double price, double amount, double transactionSpeed, double maxSupply) {
+        return new Bitcoin(assetName, symbol, blockchain, price, amount, transactionSpeed, maxSupply);
     }
 
     public double getMaxSupply() {
