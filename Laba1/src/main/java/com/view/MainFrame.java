@@ -117,10 +117,7 @@ public class MainFrame extends JFrame {
                 Bitcoin bitcoin = (Bitcoin) asset;
                 assetInfo += String.format(" | Макс. эмиссия: %.2f", bitcoin.getMaxSupply());
             }
-            if (asset instanceof Ethereum) {
-                Ethereum ethereum = (Ethereum) asset;
-                assetInfo += String.format(" | Smart-контракты: %s", ethereum.isSmartContractEnabled() ? "Да" : "Нет");
-            }
+
             if (asset instanceof Token) {
                 Token token = (Token) asset;
                 assetInfo += String.format(" | Контракт: %s", token.getContractAddress());

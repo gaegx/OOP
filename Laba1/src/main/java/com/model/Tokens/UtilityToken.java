@@ -12,7 +12,7 @@ public class UtilityToken extends Token {
     }
 
 
-    public static UtilityToken Сreate(String name, String symbol, double value, double amount, String contractAddress, String useCase) {
+    public static UtilityToken Create(String name, String symbol, double value, double amount, String contractAddress, String useCase) {
         return new UtilityToken(name, symbol, value, amount, contractAddress, useCase);
     }
 

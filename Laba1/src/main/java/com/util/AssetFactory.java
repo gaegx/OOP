@@ -8,5 +8,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface AssetFactory {
-    String[] paramPrompts();  // Подсказки для ввода параметров
+    String[] paramPrompts();
 }

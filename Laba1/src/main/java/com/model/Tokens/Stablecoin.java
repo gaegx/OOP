@@ -12,7 +12,7 @@ public class Stablecoin extends Token {
     }
 
 
-    public static Stablecoin Сreate(String name, String symbol, double value, double amount, String contractAddress, String peggedCurrency) {
+    public static Stablecoin Create(String name, String symbol, double value, double amount, String contractAddress, String peggedCurrency) {
         return new Stablecoin(name, symbol, value, amount, contractAddress, peggedCurrency);
     }
 

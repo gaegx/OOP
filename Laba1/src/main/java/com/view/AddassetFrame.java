@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class AddassetFrame extends JFrame {
     private JComboBox<String> assets;
-    private JTextField amountField;
+
     private JButton confirmButton;
     private JButton backButton;
     private MainFrame mainFrame;
@@ -32,8 +32,7 @@ public class AddassetFrame extends JFrame {
         String[] items =reflectionService.getAssetFactoryClasses();
         assets = new JComboBox<>(items);
 
-        JLabel nameLabel = new JLabel("Количество:");
-        amountField = new JTextField(15);
+
 
         confirmButton = createStyledButton("Подтвердить");
         backButton = createStyledButton("Назад");
@@ -51,12 +50,9 @@ public class AddassetFrame extends JFrame {
         gbc.gridy = 1;
         add(assets, gbc);
 
-        gbc.gridy = 2;
-        gbc.gridwidth = 1;
-        add(nameLabel, gbc);
 
-        gbc.gridx = 1;
-        add(amountField, gbc);
+
+
 
         gbc.gridx = 0;
         gbc.gridy = 3;
@@ -91,9 +87,7 @@ public class AddassetFrame extends JFrame {
         return assets;
     }
 
-    public JTextField getAmountField() {
-        return amountField;
-    }
+
 
     public JButton getConfirmButton() {
         return confirmButton;

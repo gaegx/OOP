@@ -12,7 +12,7 @@ public class ArtNFT extends NFT {
     }
 
 
-    public static ArtNFT Сreate(String name, String symbol, double value, double amount, String metadata, String artistName) {
+    public static ArtNFT Create(String name, String symbol, double value, double amount, String metadata, String artistName) {
         return new ArtNFT(name, symbol, value, amount, metadata, artistName);
     }
 

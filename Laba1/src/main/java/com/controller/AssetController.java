@@ -37,25 +37,13 @@ public  class AssetController {
 
     private void addSelectedAsset() {
         String selectedAsset = (String) assetFrame.getAssetComboBox().getSelectedItem();
-        String amountText = assetFrame.getAmountField().getText();
 
-        if (amountText == null || amountText.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(assetFrame, "Введите количество!", "Ошибка", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
 
-        double amount;
-        try {
-            amount = Double.parseDouble(amountText.trim());
-            if (amount <= 0) throw new NumberFormatException();
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(assetFrame, "Некорректное количество!", "Ошибка", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+
 
         CryptoAsset asset = createAsset(selectedAsset);
         if (asset != null) {
-            double totalCost = asset.getPrice() * amount;
+            double totalCost = asset.getPrice() * asset.getAmount();
             if (user.getBalance() >= totalCost) {
                 user.setBalance(user.getBalance() - totalCost);
                 user.getCryptoList().addAsset(asset);

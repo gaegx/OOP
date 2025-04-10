@@ -12,7 +12,7 @@ public class GameNFT extends NFT {
     }
 
 
-    public static GameNFT Сreate(String name, String symbol, double value, double amount, String metadata, String gameName) {
+    public static GameNFT Create(String name, String symbol, double value, double amount, String metadata, String gameName) {
         return new GameNFT(name, symbol, value, amount, metadata, gameName);
     }
 
